@@ -1,7 +1,34 @@
-function Particle(x, y, type) {
+/*
+ * @Author: XueYu 😊
+ * @Date: 2018-11-25 11:49:55
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2018-11-26 11:38:04
+ */
+import mathTool from '../../utils/mathTool'
+console.log('mathToolmathToolmathTool-----',mathTool)
+
+let gravity = '0',
+duration = '0.4',
+speed = '0.1',
+radius = '2',
+resolution = '10';
+
+let graVal = parseFloat(gravity);
+let durVal = parseFloat(duration);
+let spdVal = parseFloat(speed);
+let radVal = parseFloat(radius);
+let resVal = parseFloat(resolution);
+
+let colors = [
+  '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
+  '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
+  '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722'
+];
+
+function Particle(context, {x, y, type='ball',} ) {
   this.radius = 1.1;
-  this.futurRadius = utils.randomInt(radVal, radVal+3); //[2,6]
-  this.rebond = utils.randomInt(1, 5);
+  this.futurRadius = mathTool.randomInt(radVal, radVal+3); //[2,6]
+  this.rebond = mathTool.randomInt(1, 5);
   this.x = x;
   this.y = y;
 
@@ -21,7 +48,7 @@ function Particle(x, y, type) {
   };
 
   this.setSpeed = function(speed) {
-    var heading = this.getHeading();
+    let heading = this.getHeading();
     this.vx = Math.cos(heading) * speed;
     this.vy = Math.sin(heading) * speed;
   };
@@ -31,7 +58,7 @@ function Particle(x, y, type) {
   };
 
   this.setHeading = function(heading) {
-    var speed = this.getSpeed();
+    let speed = this.getSpeed();
     this.vx = Math.cos(heading) * speed;
     this.vy = Math.sin(heading) * speed;
   };
@@ -81,13 +108,15 @@ function Particle(x, y, type) {
       this.dying = false;
       this.radius = 1.1;
       this.setSpeed(spdVal);
-      this.futurRadius = utils.randomInt(radVal, radVal+3);
-      this.setHeading(utils.randomInt(utils.degreesToRads(0), utils.degreesToRads(360)));
+      this.futurRadius = mathTool.randomInt(radVal, radVal+3);
+      this.setHeading(mathTool.randomInt(mathTool.degreesToRads(0), mathTool.degreesToRads(360)));
     }
 
   };
 
-  this.setSpeed(utils.randomInt(.1, .5));
-  this.setHeading(utils.randomInt(utils.degreesToRads(0), utils.degreesToRads(360)));
+  this.setSpeed(mathTool.randomInt(.1, .5));
+  this.setHeading(mathTool.randomInt(mathTool.degreesToRads(0), mathTool.degreesToRads(360)));
 
 }
+
+export default Particle
