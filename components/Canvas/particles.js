@@ -1,11 +1,10 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-11-25 11:49:55
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2018-11-26 11:38:04
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2018-11-26 13:04:29
  */
 import mathTool from '../../utils/mathTool'
-console.log('mathToolmathToolmathTool-----',mathTool)
 
 let gravity = '0',
 duration = '0.4',

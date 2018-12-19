@@ -4,7 +4,7 @@
   "description": "www.yuartian.com",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 8888",
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
