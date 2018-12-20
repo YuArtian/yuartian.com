@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2018-11-25 11:49:55
  * @Last Modified by: XueYu😊
- * @Last Modified time: 2018-11-26 13:04:29
+ * @Last Modified time: 2018-12-20 19:12:14
  */
 import mathTool from '../../utils/mathTool'
 
@@ -63,6 +63,7 @@ function Particle(context, {x, y, type='ball',} ) {
   };
 
   this.update = function(heading) {
+    // console.log('update');
     this.x += this.vx;
     this.y += this.vy;
     this.vy += graVal;

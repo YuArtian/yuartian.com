@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu😊
  * @Date: 2018-11-24 20:52:59
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2018-11-25 01:31:38
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2018-12-20 23:17:41
  */
 import React, {Component} from 'react'
 import Head from '../components/Head'
@@ -16,7 +16,9 @@ class Index extends Component {
     }
   }
 
-  onChange = e => this.setState({ message: e.target.value })
+  onChange = e => {
+    this.setState({ message: e.target.value })
+  }
 
   render(){
     const { message } = this.state
@@ -57,7 +59,7 @@ class Index extends Component {
         <style jsx>{`
           #tips{
             position: absolute;
-            bottom: 25%;
+            bottom: 10%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
