@@ -1,14 +1,14 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-11-25 11:37:37
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2018-12-20 23:16:18
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2018-12-22 13:10:49
  */
 import Particle from './particles'
 
 export default class Shape {
 	constructor({
-		x=0, y=0, width=0, height=0, size=500, message='',
+		x=0, y=0, width=0, height=0, size=200, message='',
 		gridY=7, gridX=7, type='ball'
 	}={}){
 
