@@ -1,15 +1,16 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-12-26 18:15:53
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2018-12-26 23:20:55
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2018-12-31 22:52:34
  */
 
 let path = require('path')
+const withSass = require('@zeit/next-sass')
 
-module.exports = {
+module.exports = withSass({
+  cssModules: true,
   webpack: (config, {}) => {
-    console.log('config.module.rules',config.module.rules)
     config.module.rules.push({
       test: /\.svg$/,
       include: [path.resolve(__dirname, 'static/iconfont')],
@@ -17,13 +18,7 @@ module.exports = {
       options: {
         symbolId: 'icon-[name]'
       }
-      /* use: [{
-
-
-      },
-      'svg-fill-loader',
-      'svgo-loader'] */
     })
     return config
   }
-}
+})

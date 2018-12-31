@@ -1,0 +1,29 @@
+/*
+ * @Author: XueYu😊
+ * @Date: 2018-12-31 18:23:34
+ * @Last Modified by:   XueYu😊
+ * @Last Modified time: 2018-12-31 18:23:34
+ */
+ #tips{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+}
+#tips #message {
+  font-size: 26px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  text-align: center;
+}
+#tips .desc {
+  font-size: 13px;
+  font-weight: lighter;
+  border-top: 1px solid rgba(255,255,255,.5);
+  padding-top: 30px;
+  color: rgba(255,255,255,.5);
+}
