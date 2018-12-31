@@ -1,11 +1,12 @@
 /*
  * @Author: XueYu😊
  * @Date: 2018-11-24 20:52:59
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2018-12-20 23:17:41
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2018-12-26 14:46:21
  */
 import React, {Component} from 'react'
 import Head from '../components/Head'
+import Sider from '../components/Sider'
 import CanvasIndex from '../components/Canvas'
 
 class Index extends Component {
@@ -25,6 +26,7 @@ class Index extends Component {
     return (
       <div>
         <Head/>
+        <Sider/>
         <CanvasIndex message={message}/>
 
         <div id="tips">
@@ -54,6 +56,12 @@ class Index extends Component {
             font-family: "Helvetica";
             overflow: hidden;
           }
+          .icon {
+            width: 1em; height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+         }
         `}</style>
 
         <style jsx>{`
