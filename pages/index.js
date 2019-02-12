@@ -6,7 +6,6 @@
  */
 import React, {Component} from 'react'
 import Head from '../components/Head'
-import Sider from '../components/Sider'
 import CanvasIndex from '../components/Canvas'
 
 import styles from '../styles/index.scss'
@@ -28,13 +27,12 @@ class Index extends Component {
     return (
       <div id="app">
         <Head/>
-        <Sider/>
         <CanvasIndex message={message}/>
 
         <div id={styles.tips}>
           <input type="text" id={styles.message} value={message} onChange={this.onChange}/>
           <p className={styles.desc}>
-            Hey! Welcome to my site Please feel free
+            Hey! Welcome to my site Please feel free111
           </p>
         </div>
       </div>
