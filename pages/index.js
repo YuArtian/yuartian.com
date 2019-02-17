@@ -2,7 +2,7 @@
  * @Author: XueYu😊
  * @Date: 2018-11-24 20:52:59
  * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-01-01 00:16:52
+ * @Last Modified time: 2019-02-16 17:07:25
  */
 import React, {Component} from 'react'
 import Head from '../components/Head'
@@ -32,7 +32,7 @@ class Index extends Component {
         <div id={styles.tips}>
           <input type="text" id={styles.message} value={message} onChange={this.onChange}/>
           <p className={styles.desc}>
-            Hey! Welcome to my site Please feel free111
+            Hey! Welcome to my site Please feel free ~
           </p>
         </div>
       </div>

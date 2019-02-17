@@ -1,15 +1,15 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-11-25 11:37:37
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2018-12-22 13:10:49
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-02-17 11:48:49
  */
 import Particle from './particles'
 
 export default class Shape {
 	constructor({
 		x=0, y=0, width=0, height=0, size=200, message='',
-		gridY=7, gridX=7, type='ball'
+		gridY=6, gridX=6, type='ball', ratio=1
 	}={}){
 
 		if (!Shape.INSTANCE) {
@@ -24,18 +24,40 @@ export default class Shape {
 		Shape.INSTANCE.gridX = gridX
 		Shape.INSTANCE.gridY = gridY
 		Shape.INSTANCE.type = type
+		Shape.INSTANCE.ratio = ratio
 		Shape.INSTANCE.placement = []
 		return Shape.INSTANCE
 	}
 
 	getValue = context => {
 		const {
-			x, y, width, height, size, message, placement, gridX, gridY, type
+			x, y, width, height, size, message, placement, gridX, gridY, type, ratio
 		} = Shape.INSTANCE
-
 		context.textAlign = "center";
-		context.font = size + "px arial";
+		// context.font = size * ratio + "px arial";
+		context.font = size/ratio + "px arial";
+		// context.font = "200px arial";
 		context.fillText(message, x, y);
+		context.font = size/ratio + "px arial";
+
+		// context.font = context.font.replace(
+		// 	/(\d+)(px|em|rem|pt)/g,
+		// 	function(w, m, u) {
+		// 		console.log('m',m);
+		// 		console.log('u',u);
+		// 		console.log('ratio',ratio);
+		// 		return (m * ratio) + u;
+		// 	}
+		// );
+		// 绘制文字
+		// context.fillText(message, x, y);
+		// context.font = context.font.replace(
+		// 	/(\d+)(px|em|rem|pt)/g,
+		// 	function(w, m, u) {
+		// 		return (m / ratio) + u;
+		// 	}
+		// );
+
 
 		let idata = context.getImageData(0, 0, width, height);
 		let buffer32 = new Uint32Array(idata.data.buffer);

@@ -2,11 +2,12 @@
  * @Author: XueYu😊
  * @Date: 2018-11-24 20:56:37
  * @Last Modified by: XueYu😊
- * @Last Modified time: 2018-12-20 23:15:54
+ * @Last Modified time: 2019-02-17 12:06:11
  */
 
 import React, { PureComponent } from 'react'
 import Shape from './shape'
+import styles from './index.scss'
 
 export default class CanvasIndex extends PureComponent {
   constructor(props) {
@@ -15,13 +16,26 @@ export default class CanvasIndex extends PureComponent {
     this.state = {
       word: new Shape(),
       width: 0,
-      height: 0
+      height: 0,
+      ratio: 1,
     }
   }
 
   componentDidMount(){
-    this.ctx = this.canvasRef.current.getContext('2d')
-    this.paint();
+    let context = this.ctx = this.canvasRef.current.getContext('2d')
+    // 高清屏幕适配
+    let devicePixelRatio = window.devicePixelRatio || 1
+    let backingStoreRatio = context.webkitBackingStorePixelRatio ||
+                            context.mozBackingStorePixelRatio ||
+                            context.msBackingStorePixelRatio ||
+                            context.oBackingStorePixelRatio ||
+                            context.backingStorePixelRatio || 1
+    let ratio = devicePixelRatio / backingStoreRatio
+    let innerWidth = window.innerWidth * ratio
+    let innerHeight = window.innerHeight * ratio
+
+    this.setState({ width: innerWidth, height: innerHeight, ratio })
+    this.paint(innerWidth, innerHeight, ratio);
     requestAnimationFrame(this.tick);
     window.addEventListener('resize', this.handleResize, false);
   }
@@ -38,17 +52,23 @@ export default class CanvasIndex extends PureComponent {
   componentWillUnmount(){
     window.removeEventListener('resize', this.handleResize)
   }
-
-  paint = () => {
+  /* 绘制图形 */
+  paint = (innerWidth, innerHeight, ratio ) => {
     const { message } = this.props
-    const width = window.innerWidth
-    const height = window.innerHeight
+    const paintWidth = innerWidth || this.state.width
+    const paintHeight = innerHeight || this.state.height
+    const paintRatio = ratio || this.state.ratio
 
-    const word = new Shape({x: width/2, y: height/2, width, height, message})
+    this.ctx.clearRect(0, 0, paintWidth, paintHeight);
+    const word = new Shape({
+      x: paintWidth/(2*paintRatio), y: paintHeight/(2*paintRatio),
+      width:paintWidth, height: paintHeight, ratio: paintRatio,
+      message,
+    })
     word.getValue(this.ctx)
-    this.setState({ word, width, height })
+    this.setState({ word })
   }
-
+  /* 动态画布 */
   tick = _ => {
     requestAnimationFrame(this.tick);
     const { word, width, height } = this.state
@@ -57,20 +77,17 @@ export default class CanvasIndex extends PureComponent {
       word.placement[i].update();
     }
   }
-
+  /* 缩放窗口 */
   handleResize = () => {
-    this.setState({
-      width: this.getWindowWidth(),
-      height: this.getWindowHeight()
-    });
+    this.paint(this.getWindowWidth(), this.getWindowHeight());
   }
-
+  /* 获取宽度 */
   getWindowWidth = () => {
     return typeof window != 'undefined'
       ? window.innerWidth
       : 0;
   }
-
+  /* 获取高度 */
   getWindowHeight = () => {
     return typeof window != 'undefined'
       ? window.innerHeight
@@ -81,11 +98,13 @@ export default class CanvasIndex extends PureComponent {
     const { width, height } = this.state;
 
     return (
-      <canvas
-        ref={this.canvasRef}
-        width={width}
-        height={height}
-      />
+      <div className={styles.canvas_wrapper}>
+        <canvas
+          ref={this.canvasRef}
+          width={width}
+          height={height}
+        />
+      </div>
     );
   }
 }
