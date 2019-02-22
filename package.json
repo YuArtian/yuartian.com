@@ -23,6 +23,9 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.4.7",
+    "express": "^4.16.4",
+    "isomorphic-unfetch": "^3.0.0",
+    "mysql": "^2.16.0",
     "next": "^7.0.2",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
