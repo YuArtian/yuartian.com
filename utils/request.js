@@ -6,11 +6,14 @@
  */
 import fetch from 'isomorphic-unfetch'
 
-export default function request (url, options) {
+export default async function request (url, options) {
   const OPTION = {
     ...options
   }
-  return fetch(url, OPTION)
+  // 请求地址 拼接
+  const URL = 'http://localhost:3000/' + String(url)
+
+  return await fetch(URL, OPTION)
     .then(res => res.json())
     .catch(e => console.log('e',e))
 }

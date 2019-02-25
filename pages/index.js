@@ -7,8 +7,7 @@
 import React, {Component} from 'react'
 import Head from '../components/Head'
 import CanvasIndex from '../components/Canvas'
-// import request from '../utils/request'
-import fetch from 'isomorphic-unfetch'
+import request from '../utils/request'
 
 import styles from '../styles/index.scss'
 
@@ -20,10 +19,8 @@ class Index extends Component {
     }
   }
 
-  static async getInitialProps({ req }){
-    // const res = await request('localhost:3000/getdata',{type: 'POST'})
-    const res = await fetch('http://localhost:3000/getdata', {method: 'POST'})
-    const data = await res.json()
+  static async getInitialProps(){
+    const data = await request('getdata',{method: 'POST'})
     console.log('data',data)
     return { res: data }
   }
@@ -39,7 +36,6 @@ class Index extends Component {
       <div id="app">
         <Head/>
         <CanvasIndex message={message}/>
-        {res.data}
         <div id={styles.tips}>
           <input type="text" id={styles.message} value={message} onChange={this.onChange}/>
           <p className={styles.desc}>
