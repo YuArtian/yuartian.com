@@ -1,15 +1,15 @@
 /*
  * @Author: XueYu 😊
- * @Date: 2019-02-26 17:08:04
+ * @Date: 2019-02-28 16:00:13
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-02-28 16:08:22
+ * @Last Modified time: 2019-02-28 16:06:29
  */
 
 import React, { PureComponent } from 'react'
 import styles from './index.scss'
 import request from '../../utils/request'
 
-class SignInBtn extends PureComponent {
+class SignUpBtn extends PureComponent {
   state = {
     form_show: false,
     user_name: '',
@@ -29,12 +29,12 @@ class SignInBtn extends PureComponent {
     if (user_name === '' || user_password === '') {
       return
     }
-    const data = await request('signin', {
+    const data = await request('signup', {
       method: 'POST',
       body: { user_name, user_password },
     })
     if (data) {
-      alert('登陆成功啦～')
+      alert('注册成功啦～')
     }
   }
 
@@ -42,7 +42,7 @@ class SignInBtn extends PureComponent {
     const { form_show } = this.state
     if (form_show) {
       return(
-        <form className={styles.signInBtn_form}>
+        <form className={styles.signUpBtn_form}>
           <div>
             用户名：<input type='text' onChange={e => this.on_formItem_change(e, 'user_name')}/>
           </div>
@@ -56,10 +56,10 @@ class SignInBtn extends PureComponent {
       )
     }
     return(
-      <div className={styles.signInBtn} onClick={this.display_form}>
-        登录
+      <div className={styles.signUpBtn} onClick={this.display_form}>
+        注册
       </div>
     )
   }
 }
-export default SignInBtn
+export default SignUpBtn

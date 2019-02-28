@@ -1,24 +1,24 @@
 /*
  * @Author: XueYu 😊
- * @Date: 2019-02-26 17:15:49
+ * @Date: 2019-02-28 16:00:22
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-02-26 17:47:19
+ * @Last Modified time: 2019-02-28 16:04:29
  */
-.signIn {
+ .signUp {
   z-index: 99;
   position: absolute;
   right: 10px;
-  bottom: 10px;
+  bottom: 80px;
   padding: 10px;
 }
-.signInBtn {
-  composes: signIn;
+.signUpBtn {
+  composes: signUp;
   border-radius: 10px;
   background-color: black;
   color: #fff;
 }
 
-.signInBtn_form {
-  composes: signIn;
+.signUpBtn_form {
+  composes: signUp;
   background-color: #fff;
 }

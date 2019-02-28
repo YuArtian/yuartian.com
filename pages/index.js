@@ -2,12 +2,13 @@
  * @Author: XueYu😊
  * @Date: 2018-11-24 20:52:59
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-02-26 18:13:31
+ * @Last Modified time: 2019-02-28 16:03:03
  */
 import React, {Component} from 'react'
 import Head from '../components/Head'
 import CanvasIndex from '../components/Canvas'
 import SignInBtn from '../components/SignInBtn'
+import SignUpBtn from '../components/SignUpBtn'
 import request from '../utils/request'
 
 import styles from '../styles/index.scss'
@@ -45,6 +46,7 @@ class Index extends Component {
         </div>
 
         <SignInBtn/>
+        <SignUpBtn/>
       </div>
     )
   }
