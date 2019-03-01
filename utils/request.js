@@ -77,7 +77,8 @@ export default async function request (url, options) {
 
   console.log('newOptions',newOptions)
   // 请求地址 拼接
-  const URL = 'http://localhost:8080/api/' + String(url)
+  // const URL = 'http://localhost:8080/api/' + String(url)
+  const URL = '/api/' + String(url)
 
   return await fetch(URL, newOptions)
     .then(checkStatus)
