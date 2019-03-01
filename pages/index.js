@@ -30,6 +30,9 @@ class Index extends Component {
   onChange = e => {
     this.setState({ message: e.target.value })
   }
+  getUser = () => {
+    request('user', {method: 'GET'})
+  }
 
   render(){
     const { message } = this.state
@@ -40,7 +43,7 @@ class Index extends Component {
         <CanvasIndex message={message}/>
         <div id={styles.tips}>
           <input type="text" id={styles.message} value={message} onChange={this.onChange}/>
-          <p className={styles.desc}>
+          <p className={styles.desc} onClick={this.getUser}>
             Hey! Welcome to my site Please feel free ~
           </p>
         </div>

@@ -50,22 +50,39 @@ const checkCode = response => {
   return response
 }
 
-export default async function request (url, { method='GET', body={}, ...otherOptions }) {
-  const OPTION = {
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    method,
-    body: JSON.stringify(body),
-    ...otherOptions,
-  }
-  // 请求地址 拼接
-  const URL = 'http://localhost:3000/' + String(url)
+export default async function request (url, options) {
 
-  return await fetch(URL, OPTION)
+  const defaultOptions = {
+    method: 'GET',
+    credentials: 'include',
+  }
+
+  const newOptions = { ...defaultOptions, ...options };
+  if ( newOptions.method === 'POST' || newOptions.method === 'PUT' || newOptions.method === 'DELETE' ) {
+    if (!(newOptions.body instanceof FormData)) {
+      newOptions.headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
+        ...newOptions.headers,
+      };
+      newOptions.body = JSON.stringify(newOptions.body);
+    } else {
+      // newOptions.body is FormData
+      newOptions.headers = {
+        Accept: 'application/json',
+        ...newOptions.headers,
+      };
+    }
+  }
+
+  console.log('newOptions',newOptions)
+  // 请求地址 拼接
+  const URL = 'http://localhost:8080/api/' + String(url)
+
+  return await fetch(URL, newOptions)
     .then(checkStatus)
     .then(response => {
-      if (method === 'DELETE' || response.status === 204) {
+      if (newOptions.method === 'DELETE' || response.status === 204) {
         return response.text();
       }
       return response.json();
