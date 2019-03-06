@@ -39,12 +39,13 @@ const checkStatus = response => {
 };
 /* 后端code错误码判断 */
 const checkCode = response => {
-  const { code, message } = response
-  if (!code) {
-    alert(message)
+  const { code='ERROR', message } = response
+  if (!code || code === 'ERROR') {
     const error = new Error(message);
-    error.name = response.status;
+    error.status = response.status;
     error.response = response;
+    error.code = code
+    error.message = message
     throw error;
   }
   return response
@@ -91,7 +92,7 @@ export default async function request (url, options) {
     .then(checkCode)
     .catch(e => {
       console.log('error ----> ',e)
-      const status = e.name;
+      const { status, code, message } = e;
       if (status === 401) {
         //登出
         return;
@@ -108,5 +109,7 @@ export default async function request (url, options) {
       if (status >= 404 && status < 422) {
         // router.push('/exception/404');
       }
+      alert(message)
+
     })
 }
