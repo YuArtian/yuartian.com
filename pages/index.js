@@ -20,23 +20,17 @@ class Index extends Component {
       message: "\\(≧▽≦)/",
     }
   }
-
- /*  static async getInitialProps(){
-    const data = await request('getdata',{method: 'POST'})
-    console.log('data',data)
-    return { res: data }
-  } */
-
+  /* 输入框变化 */
   onChange = e => {
     this.setState({ message: e.target.value })
   }
+  /* 测试获取用户接口 */
   getUser = () => {
     request('user', {method: 'GET'})
   }
 
   render(){
     const { message } = this.state
-    const { res } = this.props
     return (
       <div id="app">
         <Head/>

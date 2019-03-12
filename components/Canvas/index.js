@@ -20,8 +20,12 @@ export default class CanvasIndex extends PureComponent {
       ratio: 1,
     }
   }
-
+  static getDerivedStateFromProps(nextProps, prevState){
+    console.log('getDerivedStateFromProps nextProps prevState',nextProps, prevState)
+    return nextProps
+  }
   componentDidMount(){
+    console.log('componentDidMount')
     let context = this.ctx = this.canvasRef.current.getContext('2d')
     // 高清屏幕适配
     let devicePixelRatio = window.devicePixelRatio || 1
@@ -41,6 +45,7 @@ export default class CanvasIndex extends PureComponent {
   }
 
   componentDidUpdate({ message }, { word, width, height }) {
+    console.log('componentDidUpdate word, width, height',word, width, height)
     if (message !== this.props.message) {
       this.ctx.clearRect(0, 0, width, height);
       word.placement = [];
@@ -54,6 +59,7 @@ export default class CanvasIndex extends PureComponent {
   }
   /* 绘制图形 */
   paint = (innerWidth, innerHeight, ratio ) => {
+    console.log('paint innerWidth, innerHeight, ratio', innerWidth, innerHeight, ratio)
     const { message } = this.props
     const paintWidth = innerWidth || this.state.width
     const paintHeight = innerHeight || this.state.height
@@ -79,6 +85,7 @@ export default class CanvasIndex extends PureComponent {
   }
   /* 缩放窗口 */
   handleResize = () => {
+    console.log('handleResize',this.getWindowWidth(), this.getWindowHeight())
     this.paint(this.getWindowWidth(), this.getWindowHeight());
   }
   /* 获取宽度 */
@@ -96,6 +103,7 @@ export default class CanvasIndex extends PureComponent {
 
   render() {
     const { width, height } = this.state;
+    console.log('render width, height', width, height)
 
     return (
       <div className={styles.canvas_wrapper}>
