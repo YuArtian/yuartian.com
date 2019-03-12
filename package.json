@@ -30,7 +30,8 @@
     "postcss-loader": "^3.0.0",
     "postcss-pxtorem": "^4.0.1",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-draggable": "^3.2.1"
   },
   "devDependencies": {
     "svg-baker-runtime": "^1.4.0",
