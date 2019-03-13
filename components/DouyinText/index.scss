@@ -1,14 +1,17 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-13 15:50:19
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-13 18:36:32
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-13 21:26:03
  */
 .douyin_style {
+  user-select: none;
   // position: absolute;
   position: relative;
+  // overflow: hidden;
 }
 .douyin_style_font {
+  width: 100%;
   font-weight: 700;
   animation: debounce 1s steps(3) infinite;
   /** font style **/
@@ -19,7 +22,12 @@
   font-family: 'Anton', sans-serif;
   // clear: both;
 }
-
+.placeholder {
+  composes: douyin_style_font;
+  opacity: 0;
+  padding-left: 20px;
+  padding-right: -20px;
+}
 .shake {
   position: absolute;
   z-index: 9;
