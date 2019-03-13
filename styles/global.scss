@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu😊
  * @Date: 2018-12-31 18:18:13
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-02-16 16:15:14
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-03-13 17:45:45
  */
 
 @import './var.scss';
@@ -25,6 +25,38 @@
   h1 {
     padding: 0;
     margin: 0;
+  }
+  /* flex */
+  .flex {
+    display: flex;
+  }
+  .flex_justify_content_center {
+    justify-content: center;
+  }
+  .flex_justify_content_between {
+    justify-content: space-between;
+  }
+  .flex_align_items_center {
+    align-items: center;
+  }
+  /* 鼠标指针 */
+  .cursor_pointer {
+    cursor: pointer;
+  }
+  /* 文字 */
+  .user_select {
+    user-select: none;
+  }
+  /* 字体 */
+  .f_12 {
+    font-size: 12px;
+  }
+  .f_14 {
+    font-size: 14px;
+  }
+  /* 颜色 */
+  .c_text_blue {
+    color: $text_blue;
   }
 
   .icon {

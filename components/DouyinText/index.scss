@@ -1,0 +1,136 @@
+/*
+ * @Author: XueYu 😊
+ * @Date: 2019-03-13 15:50:19
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-03-13 18:36:32
+ */
+.douyin_style {
+  // position: absolute;
+  position: relative;
+}
+.douyin_style_font {
+  font-weight: 700;
+  animation: debounce 1s steps(3) infinite;
+  /** font style **/
+  font-size: 50px;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-family: 'Anton', sans-serif;
+  // clear: both;
+}
+
+.shake {
+  position: absolute;
+  z-index: 9;
+  overflow: hidden;
+  background:rgb(29, 29, 29);
+  animation: shake-body 1s steps(4) infinite;
+  // left: var(--shake-offset);
+  // height: var(--shake-height);
+  // animation-delay: var(--shake-delay);
+}
+.shake_two {
+  composes: shake;
+  left: -2px;
+  height: 20px;
+  animation-delay: 0s;
+}
+.shake_three {
+  composes: shake;
+  left: -5px;
+  height: 10px;
+  animation-delay: .5s;
+}
+
+.font_one {
+  composes: douyin_style_font;
+}
+.font_two {
+  composes: douyin_style_font;
+  composes: shake_two;
+}
+.font_three {
+  composes: douyin_style_font;
+  composes: shake_three;
+}
+
+.douyin_style_title {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: inherit;
+  span {
+    position: relative;
+    color: #FFF;
+    z-index: 3;
+    opacity: .9;
+  }
+  &::before {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    color: #00f5e7;
+    opacity: .8;
+    z-index: 2;
+    content: attr(data-title);
+  }
+  &::after {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    opacity: .8;
+    color: #ff0068;
+    z-index: 1;
+    content: attr(data-title);
+  }
+}
+.douyin_style_title_shake {
+  animation: shake-content 1s steps(4) infinite;
+}
+.title_shake_two {
+  composes: douyin_style_title_shake;
+  animation-delay: 0s;
+}
+.title_shake_three {
+  composes: douyin_style_title_shake;
+  animation-delay: .5s;
+}
+.title_one {
+  composes: douyin_style_title;
+}
+.title_two {
+  composes: douyin_style_title;
+  composes: title_shake_two;
+}
+.title_three {
+  composes: douyin_style_title;
+  composes: title_shake_three;
+}
+
+@keyframes debounce {
+  0% {
+    margin-left: 2px;
+  }
+  0% {
+    margin-left: -4px;
+  }
+}
+
+@keyframes shake-body {
+  0%   {
+    top: 0;
+  }
+  100% {
+    top: 60px;
+  }
+}
+
+@keyframes shake-content {
+  0%   {
+    margin-top: 0;
+  }
+  100% {
+    margin-top: -60px;
+  }
+}

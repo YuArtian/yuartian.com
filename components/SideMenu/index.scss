@@ -1,0 +1,33 @@
+/*
+ * @Author: XueYu 😊
+ * @Date: 2019-03-13 11:01:35
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-03-13 14:50:19
+ */
+.sideMenu {
+  position: absolute;
+  top: 0;
+  left: 12px;
+	background-color: transparent;
+	// box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+.menu_item_wrapper {
+  &:hover {
+    .menu_item {
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      box-shadow:
+        0 4px 4px var(--shadow-color),
+        0 6px 6px var(--shadow-color),
+        0 8px 8px var(--shadow-color),
+        0 12px 12px var(--shadow-color);
+      transform: scale(1.05) translateY(-0.25em) perspective(300px) rotateX(20deg) ;
+    }
+  }
+}
+.menu_item {
+  width: 130px;
+  margin-top: 10px;
+  padding: 0 5px;
+  transition: 0.5s ease-out box-shadow,transform;
+}

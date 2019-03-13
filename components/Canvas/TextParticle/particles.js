@@ -4,7 +4,7 @@
  * @Last Modified by: XueYu😊
  * @Last Modified time: 2018-12-20 19:12:14
  */
-import mathTool from '../../utils/mathTool'
+import mathTool from '../../../utils/mathTool'
 
 let gravity = '0',
 duration = '0.4',

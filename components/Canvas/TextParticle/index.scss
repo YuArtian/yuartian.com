@@ -1,0 +1,47 @@
+/*
+ * @Author: XueYu😊
+ * @Date: 2019-02-17 11:51:57
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-03-13 10:55:10
+ */
+ @import '../../../styles/var.scss';
+
+.canvas_wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+#tips{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: $text_blue;
+  font-size: 26px;
+}
+#tips #message {
+  font-size: 26px;
+  background-color: transparent;
+  color: $text_blue;
+  border: none;
+  text-align: center;
+}
+#tips .desc {
+  color: $text_blue;
+  font-size: 13px;
+  font-weight: lighter;
+  padding-top: 30px;
+  animation: tipsUnderline 2s infinite alternate;
+}
+
+@keyframes tipsUnderline {
+  from {
+    border-top: 1px solid rgba(56,136,159,.5);
+  }
+  to {
+    border-top: 1px solid rgba(56,136,159, 0);
+  }
+}
