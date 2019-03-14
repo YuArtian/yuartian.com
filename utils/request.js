@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-02-22 15:59:36
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-02-26 18:33:14
+ * @Last Modified time: 2019-03-14 17:42:15
  */
 import fetch from 'isomorphic-unfetch'
 
@@ -109,7 +109,8 @@ export default async function request (url, options) {
       if (status >= 404 && status < 422) {
         // router.push('/exception/404');
       }
-      alert(message)
+      // alert(message)
+      console.log('message',message)
 
     })
 }

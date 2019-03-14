@@ -1,13 +1,11 @@
 /*
  * @Author: XueYu 😊
- * @Date: 2019-03-13 11:01:39
+ * @Date: 2019-03-14 17:58:54
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-14 19:00:52
+ * @Last Modified time: 2019-03-14 18:10:18
  */
-
 import styles from './index.scss'
-import Icon from '../Icon'
-import Router from 'next/router'
+import Icon from '../../Icon'
 
 const item_list = [
   {
@@ -42,18 +40,16 @@ const item_list = [
   },
 ]
 
-const SideMenu = () => (
-  <nav className={styles.sideMenu}>
-    <ul className={styles.menu_list}>
-      {
-        item_list.map(item =>
-        <li key={item.key} className={styles.menu_item} onClick={_ => Router.push(item.to)}>
-          <div className={styles.menu_item_title}>{item.title}</div>
-          <Icon name={item.icon_name} size='50px'/>
-        </li>)
-      }
-    </ul>
-  </nav>
+export default _ => (
+  <ul className={styles.sideMenu}>
+    {
+      item_list.map(item =>
+      <li key={item.key} className={styles.menu_item_wrapper}>
+          <div className={`${styles.menu_item}`}>
+            {item.title}
+            <Icon name={item.icon_name} size='50px'/>
+          </div>
+      </li>)
+    }
+  </ul>
 )
-
-export default SideMenu

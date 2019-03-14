@@ -2,7 +2,7 @@
  * @Author: XueYu😊
  * @Date: 2018-12-31 18:18:13
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-13 17:45:45
+ * @Last Modified time: 2019-03-14 18:36:41
  */
 
 @import './var.scss';
@@ -15,12 +15,16 @@
   body{
     background-color: $bg_light;
     font-family: "Helvetica";
-    overflow: hidden;
+    // overflow: hidden;
   }
   ul, li {
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   h1 {
     padding: 0;

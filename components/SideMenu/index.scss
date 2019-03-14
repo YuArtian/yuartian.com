@@ -2,32 +2,55 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-13 11:01:35
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-13 14:50:19
+ * @Last Modified time: 2019-03-14 19:05:38
  */
 .sideMenu {
-  position: absolute;
-  top: 0;
-  left: 12px;
-	background-color: transparent;
-	// box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-	border-radius: 10px;
+  position: fixed;
+  top: 20px;
+	// background-color: transparent;
 }
-.menu_item_wrapper {
-  &:hover {
-    .menu_item {
-      --shadow-color: rgba(0, 0, 0, 0.1);
-      box-shadow:
-        0 4px 4px var(--shadow-color),
-        0 6px 6px var(--shadow-color),
-        0 8px 8px var(--shadow-color),
-        0 12px 12px var(--shadow-color);
-      transform: scale(1.05) translateY(-0.25em) perspective(300px) rotateX(20deg) ;
-    }
-  }
+.menu_list {
+  transform: translate(-270px, 0);
 }
 .menu_item {
-  width: 130px;
-  margin-top: 10px;
-  padding: 0 5px;
-  transition: 0.5s ease-out box-shadow,transform;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 5px;
+  background: rgba(0, 0, 0, 0.36);
+  width: 300px;
+  text-align: right;
+  padding: 10px;
+  border-radius: 0 30px 30px 0;
+  transition: all 1s;
+  &:hover {
+    transform: translate(80px, 0);
+    background: rgba(255, 255, 255, 0.4);
+    svg {
+      color: #fff;
+      background: rgba(0, 0, 0, 0.36);
+      transform: rotate(360deg);
+      transition: all 1s;
+    }
+  }
+  svg {
+    margin-left: 10px;
+    color: #000;
+    background: #fff;
+    padding: 4px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background: #fff;
+    transform: rotate(0deg);
+  }
+}
+.menu_item_title {
+}
+.link {
+  color: #000;
+  display: inline-block;
 }
