@@ -1,18 +1,20 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-13 11:01:35
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-14 19:05:38
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-14 22:32:00
  */
 .sideMenu {
   position: fixed;
   top: 20px;
-	// background-color: transparent;
 }
 .menu_list {
   transform: translate(-270px, 0);
 }
 .menu_item {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 18px;
   cursor: pointer;
   user-select: none;
   display: flex;
@@ -26,11 +28,10 @@
   border-radius: 0 30px 30px 0;
   transition: all 1s;
   &:hover {
-    transform: translate(80px, 0);
-    background: rgba(255, 255, 255, 0.4);
+    transform: translate(100px, 0);
+    background: rgba(231, 111, 81, 1);
     svg {
       color: #fff;
-      background: rgba(0, 0, 0, 0.36);
       transform: rotate(360deg);
       transition: all 1s;
     }
@@ -47,8 +48,6 @@
     background: #fff;
     transform: rotate(0deg);
   }
-}
-.menu_item_title {
 }
 .link {
   color: #000;

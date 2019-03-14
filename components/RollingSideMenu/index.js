@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-13 11:01:39
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-14 19:00:52
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-14 22:31:00
  */
 
 import styles from './index.scss'
@@ -32,6 +32,7 @@ const item_list = [
     key: 'exhibition',
     icon_name: 'chocolate',
     title: 'Exhibition',
+    offset: '150px',
     to: '/exhibition',
   },
   {
@@ -47,7 +48,7 @@ const SideMenu = () => (
     <ul className={styles.menu_list}>
       {
         item_list.map(item =>
-        <li key={item.key} className={styles.menu_item} onClick={_ => Router.push(item.to)}>
+        <li key={item.key} className={`${styles.menu_item}`} onClick={_ => Router.push(item.to)}>
           <div className={styles.menu_item_title}>{item.title}</div>
           <Icon name={item.icon_name} size='50px'/>
         </li>)

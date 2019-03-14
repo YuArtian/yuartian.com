@@ -1,18 +1,17 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-14 09:43:27
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-14 17:49:27
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-14 23:16:49
  */
 import React, { PureComponent } from 'react'
 import request from '../utils/request'
-
+import RollingSideMenu from '../components/RollingSideMenu'
 
 class Article extends PureComponent {
   static async getInitialProps(){
-    const data = await request('article/list')
-    // console.log('data',data)
-    return { html: data.data }
+    const res = await request('article/list')
+    return { list: (res && res.data) || [] }
   }
 
   componentDidMount(){
@@ -20,8 +19,11 @@ class Article extends PureComponent {
   }
 
   render(){
+    const { list } = this.props
+    console.log('list',list);
     return (
       <div>
+        <RollingSideMenu/>
         Article
       </div>
     )

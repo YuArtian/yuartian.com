@@ -1,11 +1,11 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-14 17:58:54
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-14 18:10:18
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-14 23:01:58
  */
 import styles from './index.scss'
-import Icon from '../../Icon'
+import Icon from '../Icon'
 
 const item_list = [
   {
