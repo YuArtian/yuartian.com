@@ -1,21 +1,20 @@
 /*
  * @Author: XueYu😊
  * @Date: 2018-11-24 20:52:59
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-03-14 23:05:21
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-03-15 14:34:09
  */
 import React, {Component} from 'react'
 import TextParticle from '../components/Canvas/TextParticle'
-import RollingSideMenu from '../components/RollingSideMenu'
+import Layout from '../components/Layout'
 
 class Index extends Component {
 
   render(){
     return (
-      <div id="app">
+      <Layout>
         <TextParticle/>
-        <RollingSideMenu/>
-      </div>
+      </Layout>
     )
   }
 }
