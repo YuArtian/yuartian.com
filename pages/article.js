@@ -8,7 +8,7 @@ import React, { PureComponent } from 'react'
 import request from '../utils/request'
 import Layout from '../components/Layout'
 import styles from '../styles/articles.scss'
-import { GitCard, flex_cards } from '../components/Card'
+import { flex_cards } from '../components/Card'
 
 const item_list = [
   {
@@ -18,23 +18,24 @@ const item_list = [
   },
 ]
 
-const list = [
-  {name: '1'},{name: '2'},{name: '3'},{name: '4'},
-]
+// const list = [
+//   {name: '1'},{name: '2'},{name: '3'},{name: '4'},
+// ]
 
 class Article extends PureComponent {
-  // static async getInitialProps(){
-  //   const res = await request('article/list')
-  //   return { list: (res && res.data) || [] }
-  // }
+  static async getInitialProps(){
+    const res = await request('article/list')
+    console.log('res.data',res)
+    return { list: (res && res.data) || [] }
+  }
 
   componentDidMount(){
     //dangerouslySetInnerHTML={{__html: this.props.html}}
   }
 
   render(){
-    // const { list } = this.props
-    // console.log('list',list);
+    const { list } = this.props
+    console.log('list',list);
     return (
       <Layout list={item_list}>
         <div id={styles.articles}>

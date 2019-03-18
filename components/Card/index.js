@@ -31,13 +31,13 @@ const flex_cards = cards_arr => {
     if (left_num !== 0) {
       result = to_bale_arr.splice(-1, left_num)
       for(let i=0; i<=(col_num-result.length); i++){
-        result.push(<div className={styles.card_fill}></div>)
+        result.push(<div className={styles.card_fill} key={`card_fill_${i}`}></div>)
       }
     }
     const baled_arr = bale_cards(to_bale_arr)
     return [...baled_arr, result].map((row, index) => (
-      <div key={index} className={`${row.length===3?styles.card_row_full:styles.card_row_part}`}>
-        {row.map(card => card.name?<GitCard key={card.name} info={card}/>:card)}
+      <div key={`card_row_${index}`} className={`${row.length===3?styles.card_row_full:styles.card_row_part}`}>
+        {row.map(card => card.key?<GitCard key={card.key} info={card}/>:card)}
       </div>
     ))
   }
