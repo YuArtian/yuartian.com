@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-14 09:43:27
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-15 17:53:22
+ * @Last Modified time: 2019-03-19 17:47:10
  */
 import React, { PureComponent } from 'react'
 import request from '../utils/request'
@@ -25,7 +25,6 @@ const item_list = [
 class Article extends PureComponent {
   static async getInitialProps(){
     const res = await request('article/list')
-    console.log('res.data',res)
     return { list: (res && res.data) || [] }
   }
 
@@ -35,7 +34,6 @@ class Article extends PureComponent {
 
   render(){
     const { list } = this.props
-    console.log('list',list);
     return (
       <Layout list={item_list}>
         <div id={styles.articles}>

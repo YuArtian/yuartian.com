@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-15 11:28:38
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-15 14:23:39
+ * @Last Modified time: 2019-03-19 18:40:08
  */
 /* "dev": "next -p 8888",
 "start": "next start -p 8888",
@@ -20,9 +20,9 @@ app
   .then(() => {
     const server = express()
 
-    /* server.get('/article/git', (req, res) => {
-      console.log('article')
-      const actualPage = '/git'
+    /* server.get('/git/:download_url', (req, res) => {
+      console.log('article', req.params.download_url)
+      const actualPage = '/article'
       app.render(req, res, actualPage)
     }) */
 

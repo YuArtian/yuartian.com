@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-15 15:23:00
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-15 18:37:04
+ * @Last Modified time: 2019-03-19 13:45:46
  */
 import GitCard from './GitCard'
 import styles from './index.scss'
@@ -37,7 +37,7 @@ const flex_cards = cards_arr => {
     const baled_arr = bale_cards(to_bale_arr)
     return [...baled_arr, result].map((row, index) => (
       <div key={`card_row_${index}`} className={`${row.length===3?styles.card_row_full:styles.card_row_part}`}>
-        {row.map(card => card.key?<GitCard key={card.key} info={card}/>:card)}
+        {row.map(card => card.id?<GitCard key={card.id} info={card}/>:card)}
       </div>
     ))
   }
