@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-15 15:23:19
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-19 18:11:22
+ * @Last Modified time: 2019-03-21 15:29:04
  */
 .card_row {
   width: 100%;
@@ -40,10 +40,15 @@
 .card_git {
   composes: card;
   border-radius: 10px;
-  .card_show {
+  .card_show_wrapper {
+    user-select: none;
     flex: 1;
     overflow: hidden;
     background-color: #fff;
+    padding-top: 10px;
+    .card_show {
+      transform: translate(0, -10%) scale(0.8);
+    }
   }
   .card_bottom {
     display: flex;

@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-02-22 15:59:36
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-14 17:42:15
+ * @Last Modified time: 2019-03-21 15:36:11
  */
 import fetch from 'isomorphic-unfetch'
 
@@ -76,7 +76,6 @@ export default async function request (url, options) {
     }
   }
 
-  console.log('newOptions',newOptions)
   // 请求地址 拼接
   const URL = 'http://localhost:8080/api/' + String(url)
   // const URL = '/api/' + String(url)
@@ -91,7 +90,6 @@ export default async function request (url, options) {
     })
     .then(checkCode)
     .catch(e => {
-      console.log('error ----> ',e)
       const { status, code, message } = e;
       if (status === 401) {
         //登出

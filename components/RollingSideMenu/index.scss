@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-13 11:01:35
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-03-14 22:32:00
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-03-21 15:30:09
  */
 .sideMenu {
   position: fixed;
@@ -31,7 +31,7 @@
     transform: translate(100px, 0);
     background: rgba(231, 111, 81, 1);
     svg {
-      color: #fff;
+      // color: #fff;
       transform: rotate(360deg);
       transition: all 1s;
     }

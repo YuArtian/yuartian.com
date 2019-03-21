@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-11-25 11:37:37
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-02-17 11:48:49
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-03-21 15:35:39
  */
 import Particle from './particles'
 
@@ -43,9 +43,6 @@ export default class Shape {
 		// context.font = context.font.replace(
 		// 	/(\d+)(px|em|rem|pt)/g,
 		// 	function(w, m, u) {
-		// 		console.log('m',m);
-		// 		console.log('u',u);
-		// 		console.log('ratio',ratio);
 		// 		return (m * ratio) + u;
 		// 	}
 		// );
