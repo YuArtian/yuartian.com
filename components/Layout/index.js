@@ -2,41 +2,57 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-15 14:29:37
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-21 18:34:17
+ * @Last Modified time: 2019-03-22 16:09:29
  */
 import styles from './index.scss'
 import RollingSideMenu from '../RollingSideMenu'
-import { SideContext, selected_menu } from '../../context/sideMenu_context'
+import { SideContext } from '../../context/sideMenu_context'
 import React, { PureComponent } from 'react'
+import SIDER_MENU_CONFIG from '../../common/sider_menu_config'
 
 class Layout extends PureComponent {
   state = {
-    selected: selected_menu
+    selected: this.props.list[0],
   }
-  toggle_menu = selected => {
-    this.setState({ selected })
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState){
-    console.log('getDerivedStateFromProps nextProps', nextProps)
-    console.log('getDerivedStateFromProps', window.location.pathname)
-    const { list } = nextProps
-    return {
-      selected: 'home'
-    }
-  }
+  /* 切换菜单 */
+  toggle_menu = selected => this.setState({ selected })
 
   render(){
     const { children, list } = this.props
     const { selected } = this.state
     return (
       <div id={styles.app}>
+        <RollingSideMenu item_list={list} toggle_menu={this.toggle_menu}/>
         <SideContext.Provider value={selected}>
-          <RollingSideMenu item_list={list} toggle_menu={this.toggle_menu}/>
           {children}
         </SideContext.Provider>
       </div>
     )
+  }
+}
+
+/* HOC */
+export function withRouterLayout (WrappedComponent, fetch_data) {
+  return class extends PureComponent {
+    static async getInitialProps (ctx) {
+      const { pathname } = ctx
+      const data_source = (fetch_data && await fetch_data()) || ''
+      return {
+        current_list: SIDER_MENU_CONFIG[pathname] || [],
+        current_pathname: pathname,
+        data_source,
+        ...WrappedComponent.getInitialProps(ctx),
+      }
+    }
+
+    render(){
+      const { current_list, current_pathname, data_source } = this.props
+      return (
+        <Layout list={current_list} pathname={current_pathname}>
+          <WrappedComponent data_source={data_source}/>
+        </Layout>
+      )
+    }
   }
 }
 
