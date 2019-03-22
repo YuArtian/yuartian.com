@@ -10,7 +10,7 @@ import Article from  '../Article'
 
 const handle_click_card_show = url => window.open(url, '_blank')
 
-export default ({info: { title, avatar, user_name, html, html_url, download_url }}) => (
+export default ({info: { title, avatar, user_name, html='', html_url, download_url }}) => (
   <div className={styles.card_git}>
     <div className={styles.card_show_wrapper} onClick={() => handle_click_card_show(html_url)}>
       <div className={styles.card_show}>

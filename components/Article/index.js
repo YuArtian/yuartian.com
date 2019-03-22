@@ -13,11 +13,14 @@ class Article extends PureComponent {
     html: ''
   }
   async componentDidMount () {
-    const {data} = await request('article/detail', {
-      method: 'POST',
-      body: {download_url: this.props.download_url}
-    })
-    this.setState({ html: data })
+    const { html, download_url } = this.props
+    if (!html && download_url) {
+      const { data } = await request('article/detail', {
+        method: 'POST',
+        body: {download_url: this.props.download_url}
+      })
+      this.setState({ html: data })
+    }
   }
   render(){
     return (
