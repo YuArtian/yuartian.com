@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-14 09:43:27
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-22 16:10:54
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-23 20:21:14
  */
 import React, { PureComponent } from 'react'
 import request from '../utils/request'
@@ -14,42 +14,57 @@ import { SideContext } from '../context/sideMenu_context'
 /* 获取我的文章列表 */
 async function get_my_articles () {
   const res = await request('article/list')
-  return { list: (res && res.data) || [] }
+  return ((res && res.data) || [])
 }
 
 /* 获取九部文章 */
 async function get_fe9_articles () {
   const res = await request('article/fe9/list')
-  return {}
+  return ((res && res.data) || [])
 }
 
-class Article extends PureComponent {
-  static async getInitialProps(){
-    console.log('getInitialProps Article')
+
+
+class ArticlesConsumer extends PureComponent {
+  state = {
+    list: []
   }
-  componentDidMount(){
-    console.log('componentDidMount')
+
+  fetch_data = async () => {
+    const { selected_menu } = this.props
+    const res = await request(selected_menu.api)
+    return ((res && res.data) || [])
   }
-  render_context = selected_menu => {
-    console.log('render_context selected_menu',selected_menu)
-    if (selected_menu.key === 'article') {
-      const { data_source } = this.props
-      return flex_cards(data_source.list)
-    }
-    if (selected_menu.key === 'fe9') {
-      const { data } =
+
+  async componentDidMount(){
+    const list = await this.fetch_data()
+    this.setState({ list })
+  }
+
+  async componentDidUpdate(prevProps, prevState, snapshot){
+    if (this.props.selected_menu.key !== prevProps.selected_menu.key) {
+      const list = await this.fetch_data()
+      this.setState({ list })
     }
   }
 
   render(){
+    const { list } = this.state
+    return flex_cards(list)
+  }
+}
+
+
+class ArticlesPage extends PureComponent {
+  render(){
     return (
       <div id={styles.articles}>
         <SideContext.Consumer>
-          { selected_menu => this.render_context(selected_menu) }
+          { selected_menu => <ArticlesConsumer selected_menu={selected_menu}/> }
         </SideContext.Consumer>
       </div>
     )
   }
 }
 
-export default withRouterLayout(Article, get_my_articles)
+export default withRouterLayout(ArticlesPage)

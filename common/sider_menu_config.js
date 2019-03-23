@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-22 11:28:45
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-22 14:32:08
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-23 20:02:00
  */
 const menu_config = {
   '/': [
@@ -16,7 +16,7 @@ const menu_config = {
       key: 'article',
       icon_name: 'octopus',
       title: 'Article',
-      to: '/article'
+      to: '/article',
     },
     {
       key: 'album',
@@ -43,12 +43,14 @@ const menu_config = {
       key: 'article',
       title: 'All',
       icon_name: 'pooh_bear',
-      to: '/article'
+      to: '/article',
+      api: 'article/list',
     },
     {
       key: 'fe9',
       title: '前端九部',
       icon_name: 'snoopy',
+      api: 'article/fe9/list',
     },
   ],
 }
