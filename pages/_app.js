@@ -1,16 +1,32 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-12-31 15:54:17
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-21 14:34:32
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-24 17:41:01
  */
 import React from 'react'
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+import withRedux from "next-redux-wrapper";
 import App, { Container } from 'next/app'
 import Head from 'next/head'
 import '../static/iconfont'
 import '../styles/global.scss'
 
-export default class MyApp extends App {
+const reducer = (state = {foo: ''}, action) => {
+  switch (action.type) {
+      case 'FOO':
+          return {...state, foo: action.payload};
+      default:
+          return state
+  }
+};
+
+const makeStore = (initialState, options) => {
+  return createStore(reducer, initialState);
+};
+
+class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
 
@@ -22,7 +38,7 @@ export default class MyApp extends App {
   }
 
   render () {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps, store } = this.props
 
     return (
       <Container>
@@ -33,8 +49,12 @@ export default class MyApp extends App {
           <link rel="stylesheet" href="/static/github-markdown.css"></link>
           <title>YuArtian</title>
         </Head>
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
       </Container>
     )
   }
 }
+
+export default withRedux(makeStore)(MyApp);
