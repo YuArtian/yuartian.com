@@ -21,7 +21,7 @@
   "homepage": "https://github.com/YuArtian/yuartian.com#readme",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
-    "autoprefixer": "^9.4.7",
+    "autoprefixer": "^9.5.0",
     "express": "^4.16.4",
     "github-markdown-css": "^3.0.1",
     "isomorphic-unfetch": "^3.0.0",
@@ -29,8 +29,8 @@
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
     "postcss-pxtorem": "^4.0.1",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "react-draggable": "^3.2.1"
   },
   "devDependencies": {
