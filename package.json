@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "cross-env NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
@@ -22,16 +22,20 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.5.0",
+    "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "github-markdown-css": "^3.0.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^8.0.3",
+    "next-redux-wrapper": "^3.0.0-alpha.2",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
     "postcss-pxtorem": "^4.0.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-draggable": "^3.2.1"
+    "react-draggable": "^3.2.1",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "svg-baker-runtime": "^1.4.0",

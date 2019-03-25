@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-15 14:29:37
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-22 16:09:29
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-23 18:21:01
  */
 import styles from './index.scss'
 import RollingSideMenu from '../RollingSideMenu'
@@ -37,11 +37,12 @@ export function withRouterLayout (WrappedComponent, fetch_data) {
     static async getInitialProps (ctx) {
       const { pathname } = ctx
       const data_source = (fetch_data && await fetch_data()) || ''
+      const wrapped_props = WrappedComponent.getInitialProps && WrappedComponent.getInitialProps(ctx)
       return {
         current_list: SIDER_MENU_CONFIG[pathname] || [],
         current_pathname: pathname,
         data_source,
-        ...WrappedComponent.getInitialProps(ctx),
+        ...wrapped_props,
       }
     }
 
