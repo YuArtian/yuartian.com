@@ -10,6 +10,7 @@ import {Provider} from "react-redux";
 import withRedux from "next-redux-wrapper";
 import App, { Container } from 'next/app'
 import Head from 'next/head'
+import createSagaMiddleware from 'redux-saga'
 import '../static/iconfont'
 import '../styles/global.scss'
 
@@ -23,7 +24,10 @@ const reducer = (state = {foo: ''}, action) => {
 };
 
 const makeStore = (initialState, options) => {
-  return createStore(reducer, initialState);
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(reducer, initialState, applyMiddleware(sagaMiddleware));
+  sagaMiddleware.run(rootSaga);
+  return store
 };
 
 class MyApp extends App {
