@@ -29,7 +29,9 @@ const makeStore = (initialState, options) => {
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
-
+    // console.log('Component --> ', Component)
+    // console.log('router --> ', router)
+    console.log('ctx req',ctx.req)
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }

@@ -5,6 +5,8 @@
  * @Last Modified time: 2019-03-23 21:01:36
  */
 import fetch from 'isomorphic-unfetch'
+// const current_env = process.env
+// console.log('current_env',current_env)
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -77,8 +79,8 @@ export default async function request (url, options) {
   }
 
   // 请求地址 拼接
-  // const URL = 'http://localhost:8080/api/' + String(url)
-  const URL = '/api/' + String(url)
+  const URL = 'http://localhost:8080/api/' + String(url)
+  // const URL = '/api/' + String(url)
 
   return await fetch(URL, newOptions)
     .then(checkStatus)
