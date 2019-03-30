@@ -1,34 +1,27 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-12-31 15:54:17
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-03-24 17:41:01
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-03-27 20:09:29
  */
 import React from 'react'
-import {createStore} from "redux";
 import {Provider} from "react-redux";
 import withRedux from "next-redux-wrapper";
 import App, { Container } from 'next/app'
 import Head from 'next/head'
-import createSagaMiddleware from 'redux-saga'
+import configureStore from '../store/configureStore'
 import '../static/iconfont'
 import '../styles/global.scss'
 
 const reducer = (state = {foo: ''}, action) => {
   switch (action.type) {
-      case 'FOO':
-          return {...state, foo: action.payload};
-      default:
-          return state
+    case 'FOO':
+      return {...state, foo: action.payload};
+    default:
+      return state
   }
 };
 
-const makeStore = (initialState, options) => {
-  const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(reducer, initialState, applyMiddleware(sagaMiddleware));
-  sagaMiddleware.run(rootSaga);
-  return store
-};
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -63,4 +56,4 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(makeStore)(MyApp);
+export default withRedux(configureStore)(MyApp);
