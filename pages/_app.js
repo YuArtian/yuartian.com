@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-12-31 15:54:17
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-27 20:09:29
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-03-30 21:17:37
  */
 import React from 'react'
 import {Provider} from "react-redux";
@@ -12,16 +12,6 @@ import Head from 'next/head'
 import configureStore from '../store/configureStore'
 import '../static/iconfont'
 import '../styles/global.scss'
-
-const reducer = (state = {foo: ''}, action) => {
-  switch (action.type) {
-    case 'FOO':
-      return {...state, foo: action.payload};
-    default:
-      return state
-  }
-};
-
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
