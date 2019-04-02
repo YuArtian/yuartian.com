@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-02-22 15:59:36
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-03-23 21:01:36
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-04-02 17:16:30
  */
 import fetch from 'isomorphic-unfetch'
 // const current_env = process.env
@@ -91,6 +91,10 @@ export default async function request (url, options) {
       return response.json();
     })
     .then(checkCode)
+    .then(
+      response => ({ response: response.data }),
+      // error => ({ error: error.message || '' })
+    )
     .catch(e => {
       const { status, code, message } = e;
       if (status === 401) {

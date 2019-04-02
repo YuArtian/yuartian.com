@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2018-12-31 15:54:17
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-03-30 21:17:37
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-04-01 19:22:59
  */
 import React from 'react'
 import {Provider} from "react-redux";
@@ -12,18 +12,19 @@ import Head from 'next/head'
 import configureStore from '../store/configureStore'
 import '../static/iconfont'
 import '../styles/global.scss'
+import DevTools from '../components/DevTools'
+
+// const store = configureStore(window.__INITIAL_STATE__)
+// store.runSaga(rootSaga)
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
-    // console.log('Component --> ', Component)
-    // console.log('router --> ', router)
-    console.log('ctx req',ctx.req)
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    return { pageProps }
+    return { pageProps: {...pageProps} }
   }
 
   render () {
@@ -40,6 +41,7 @@ class MyApp extends App {
         </Head>
         <Provider store={store}>
           <Component {...pageProps} />
+          { process.env.NODE_ENV !== 'production' &&  <DevTools/>}
         </Provider>
       </Container>
     )

@@ -1,10 +1,10 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-22 11:28:45
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-03-23 20:02:00
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-04-01 17:43:31
  */
-const menu_config = {
+const SIDER_MENU_CONFIG = {
   '/': [
     {
       key: 'home',
@@ -55,4 +55,4 @@ const menu_config = {
   ],
 }
 
-export default menu_config
+export default SIDER_MENU_CONFIG

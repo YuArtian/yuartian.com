@@ -13,6 +13,7 @@ const configureStore = preloadedState => {
     applyMiddleware(sagaMiddleware, api)
   )
   sagaMiddleware.run(rootSaga)
+  store.close = () => store.dispatch(END)
   return store
 }
 
