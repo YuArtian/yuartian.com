@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-30 14:25:35
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-02 17:37:31
+ * @Last Modified time: 2019-04-02 18:43:38
  */
 
 export const REQUEST = 'REQUEST'
@@ -30,7 +30,7 @@ function action (type, payload={}) {
 // export const MY_ARTICLES_LOADING = 'MY_ARTICLES__LOADING'
 export const articles = {
   request: _ => action(MY_ARTICLES[REQUEST], {}),
-  success: response => action(MY_ARTICLES[SUCCESS], {response: { my_articles_list: response }}),
+  success: response => action(MY_ARTICLES[SUCCESS], {response: { articles_list: response }}),
   failure: error => action(MY_ARTICLES[FAILURE], {error}),
 }
 

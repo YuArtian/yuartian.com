@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-14 09:43:27
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-02 18:21:01
+ * @Last Modified time: 2019-04-02 18:43:51
  */
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
@@ -26,8 +26,8 @@ class ArticlesPage extends PureComponent {
     // const list = await this.fetch_data()
     // this.setState({ list })
     console.log('this.props',this.props)
-    const { sider_menu: {selected_menu} } = this.props
-    this.props.toggle_menu(selected_menu)
+    const { sider_menu: {SIDER_MENU_CONFIG} } = this.props
+    this.props.toggle_menu(SIDER_MENU_CONFIG[window.location.pathname][0])
   }
 
   async componentDidUpdate(prevProps, prevState, snapshot){
@@ -38,10 +38,10 @@ class ArticlesPage extends PureComponent {
   }
 
   render(){
-    const { list } = this.state
+    const { entities: { articles_list=[] } } = this.props
     return (
       <div id={styles.articles}>
-        {flex_cards(list)}
+        {flex_cards(articles_list)}
       </div>
     )
   }
