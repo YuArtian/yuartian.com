@@ -5,8 +5,6 @@
  * @Last Modified time: 2019-04-02 17:16:30
  */
 import fetch from 'isomorphic-unfetch'
-// const current_env = process.env
-// console.log('current_env',current_env)
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',

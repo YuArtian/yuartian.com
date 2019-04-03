@@ -9,9 +9,7 @@ import * as ActionTypes from '../actions'
 import SIDER_MENU_CONFIG from '../common/sider_menu_config'
 
 function entities(state = {}, action) {
-  console.log('entities action',action)
   if (action.payload && action.payload.response) {
-    console.log('action.payload.response')
     // return merge({}, state, action.response.entities)
     return {...state, ...action.payload.response}
   }

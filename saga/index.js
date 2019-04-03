@@ -12,7 +12,6 @@ function* fetchEntity(entity, apiFn, args) {
   yield put(entity.request(args))
   const { response, error } = yield call(apiFn, args)
   if (response) {
-    console.log('response',response)
     yield put(entity.success(response))
   }
   else {
@@ -20,16 +19,19 @@ function* fetchEntity(entity, apiFn, args) {
   }
 }
 
-export const fetch_articles = fetchEntity.bind(null, actions.articles, api.fetch_articles)
+export const fetch_my_articles = fetchEntity.bind(null, actions.my_articles, api.fetch_articles)
+export const fetch_fe9_articles = fetchEntity.bind(null, actions.fe9_articles, api.fetch_articles)
 
 /* 菜单切换 */
 function* watch_sider_menu () {
   while (true) {
-    const { payload: { selected_menu } } = yield take(actions.TOGGLE_MENU)
-    console.log('selected_menu', selected_menu)
-    const { title, api } = selected_menu
-    if (title === 'All') {
-      yield call(fetch_articles, { api, title })
+    const { payload } = yield take(actions.TOGGLE_MENU)
+    const { key, api } = payload
+    if (key === 'my_article') {
+      yield call(fetch_my_articles, { api, key })
+    }
+    if (key === 'fe9') {
+      yield call(fetch_fe9_articles, { api, key })
     }
   }
 }

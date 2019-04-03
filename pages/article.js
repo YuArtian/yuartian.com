@@ -12,29 +12,10 @@ import styles from '../styles/articles.scss'
 import { flex_cards } from '../components/Card'
 
 class ArticlesPage extends PureComponent {
-  state = {
-    list: []
-  }
-  fetch_data = async () => {
-    const { selected_menu } = this.props
-    // const res = await request(selected_menu.api)
-    // return ((res && res.data) || [])
-    return []
-  }
 
-  async componentDidMount(){
-    // const list = await this.fetch_data()
-    // this.setState({ list })
-    console.log('this.props',this.props)
+  componentDidMount(){
     const { sider_menu: {SIDER_MENU_CONFIG} } = this.props
     this.props.toggle_menu(SIDER_MENU_CONFIG[window.location.pathname][0])
-  }
-
-  async componentDidUpdate(prevProps, prevState, snapshot){
-    // if (this.props.selected_menu.key !== prevProps.selected_menu.key) {
-    //   const list = await this.fetch_data()
-    //   this.setState({ list })
-    // }
   }
 
   render(){

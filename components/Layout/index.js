@@ -11,14 +11,22 @@ import { connect } from 'react-redux'
 import { toggle_menu } from '../../actions'
 
 class Layout extends PureComponent {
-  state = {
-  }
   /* 切换菜单 */
-  handle_toggle_menu = selected => this.props.toggle_menu(selected)
+  handle_toggle_menu = selected => {
+    const { loading } = this.props
+    const { key } = selected
+    if (loading['MY_ARTICLES'] && key === 'my_article') {
+      return
+    }
+    if (loading['FE9_ARTICLES'] && key === 'fe9') {
+      return
+    }
+
+    this.props.toggle_menu(selected)
+  }
 
   render(){
     const { children, current_menu_list } = this.props
-    console.log('current_menu_list',current_menu_list)
     return (
       <div id={styles.app}>
         <RollingSideMenu handle_toggle_menu={this.handle_toggle_menu} current_menu_list={current_menu_list} />
@@ -38,9 +46,8 @@ export function withRouterLayout (WrappedComponent, fetch_data) {
     toggle_menu
   })(class extends PureComponent {
     static async getInitialProps (ctx) {
-      console.log('withRouterLayout getInitialProps')
       const { pathname, store } = ctx
-      const { sider_menu: { SIDER_MENU_CONFIG } } = store.getState()
+      const { sider_menu: { SIDER_MENU_CONFIG }, loading } = store.getState()
       const data_source = (fetch_data && await fetch_data()) || ''
       // store.dispatch(toggle_menu(SIDER_MENU_CONFIG[pathname]))
       const wrapped_props = WrappedComponent.getInitialProps && WrappedComponent.getInitialProps(ctx)
@@ -48,14 +55,15 @@ export function withRouterLayout (WrappedComponent, fetch_data) {
         current_menu_list: SIDER_MENU_CONFIG[pathname],
         current_pathname: pathname,
         data_source,
+        loading,
         ...wrapped_props,
       }
     }
 
     render(){
-      const { current_menu_list, data_source, toggle_menu } = this.props
+      const { current_menu_list, data_source, toggle_menu, loading } = this.props
       return (
-        <Layout current_menu_list={current_menu_list} toggle_menu={toggle_menu}>
+        <Layout current_menu_list={current_menu_list} toggle_menu={toggle_menu} loading={loading}>
           <WrappedComponent data_source={data_source} />
         </Layout>
       )

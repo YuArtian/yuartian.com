@@ -40,7 +40,7 @@ const SIDER_MENU_CONFIG = {
   ],
   '/article': [
     {
-      key: 'article',
+      key: 'my_article',
       title: 'All',
       icon_name: 'pooh_bear',
       to: '/article',
