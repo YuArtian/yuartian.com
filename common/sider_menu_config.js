@@ -53,6 +53,13 @@ const SIDER_MENU_CONFIG = {
       api: 'article/fe9/list',
     },
   ],
+  '/album': [
+    {
+      key: 'daily',
+      title: 'Daily',
+      icon_name: 'pooh_bear',
+    },
+  ],
 }
 
 export default SIDER_MENU_CONFIG

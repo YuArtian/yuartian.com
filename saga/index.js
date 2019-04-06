@@ -8,7 +8,7 @@ import * as actions from '../actions'
 import { call, put, take, takeEvery, takeLatest, all, fork } from 'redux-saga/effects'
 import * as api from '../services/api'
 
-function* fetchEntity(entity, apiFn, args) {
+function* fetchEntity(entity, apiFn, args={}) {
   yield put(entity.request(args))
   const { response, error } = yield call(apiFn, args)
   if (response) {
@@ -21,6 +21,7 @@ function* fetchEntity(entity, apiFn, args) {
 
 export const fetch_my_articles = fetchEntity.bind(null, actions.my_articles, api.fetch_articles)
 export const fetch_fe9_articles = fetchEntity.bind(null, actions.fe9_articles, api.fetch_articles)
+export const fetch_NASA = fetchEntity.bind(null, actions.NASA_pic, api.fetch_NASA)
 
 /* 菜单切换 */
 function* watch_sider_menu () {
@@ -32,6 +33,9 @@ function* watch_sider_menu () {
     }
     if (key === 'fe9') {
       yield call(fetch_fe9_articles, { api, key })
+    }
+    if (key === 'daily') {
+      yield call(fetch_NASA)
     }
   }
 }

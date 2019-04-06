@@ -7,4 +7,7 @@
 
 import request from '../utils/request'
 
+/* 获取文章 */
 export const fetch_articles = ({api}) => request(api)
+/* NASA 每日 */
+export const fetch_NASA = _ => request('https://api.nasa.gov/planetary/apod?api_key=si5gTjppXl9N2RnKI5Mrekmr2gDFr2g4i1i6AeEE')

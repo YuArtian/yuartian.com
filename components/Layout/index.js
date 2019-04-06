@@ -2,7 +2,7 @@
  * @Author: XueYu 😊
  * @Date: 2019-03-15 14:29:37
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-02 18:00:16
+ * @Last Modified time: 2019-04-05 23:25:17
  */
 import styles from './index.scss'
 import RollingSideMenu from '../RollingSideMenu'
@@ -46,6 +46,7 @@ export function withRouterLayout (WrappedComponent, fetch_data) {
     toggle_menu
   })(class extends PureComponent {
     static async getInitialProps (ctx) {
+      console.log('getInitialProps')
       const { pathname, store } = ctx
       const { sider_menu: { SIDER_MENU_CONFIG }, loading } = store.getState()
       const data_source = (fetch_data && await fetch_data()) || ''
