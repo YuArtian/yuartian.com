@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-02-22 15:59:36
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-02 17:16:30
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-04-06 18:57:32
  */
 import fetch from 'isomorphic-unfetch'
 
@@ -51,7 +51,7 @@ const checkCode = response => {
   return response
 }
 
-export default async function request (url, options) {
+export default async function request (url, { auto=true, ...options }={}) {
 
   const defaultOptions = {
     method: 'GET',
@@ -77,7 +77,7 @@ export default async function request (url, options) {
   }
 
   // 请求地址 拼接
-  const URL = 'http://localhost:8080/api/' + String(url)
+  const URL = auto ? 'http://localhost:8080/api/' + String(url) : url
   // const URL = '/api/' + String(url)
 
   return await fetch(URL, newOptions)

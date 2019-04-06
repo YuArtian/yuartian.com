@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-04-03 14:37:05
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-06 12:26:30
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-04-06 18:30:06
  */
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
@@ -12,6 +12,9 @@ import { NASA_pic } from '../actions'
 
 
 class Ablum extends PureComponent {
+  async getInitialProps(){
+
+  }
   componentDidMount(){
 
   }

@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-27 19:22:49
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-02 18:20:59
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-04-06 21:22:48
  */
 import * as actions from '../actions'
 import { call, put, take, takeEvery, takeLatest, all, fork } from 'redux-saga/effects'
@@ -24,7 +24,7 @@ export const fetch_fe9_articles = fetchEntity.bind(null, actions.fe9_articles, a
 export const fetch_NASA = fetchEntity.bind(null, actions.NASA_pic, api.fetch_NASA)
 
 /* 菜单切换 */
-function* watch_sider_menu () {
+function* watch_sider_menu(){
   while (true) {
     const { payload } = yield take(actions.TOGGLE_MENU)
     const { key, api } = payload
@@ -35,8 +35,16 @@ function* watch_sider_menu () {
       yield call(fetch_fe9_articles, { api, key })
     }
     if (key === 'daily') {
+      console.log('daily');
       yield call(fetch_NASA)
     }
+  }
+}
+
+/* Ablum */
+function* watch_load_ablum_page(){
+  while(true){
+
   }
 }
 

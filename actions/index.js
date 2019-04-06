@@ -23,6 +23,7 @@ export const NASA_PIC = createRequestTypes('NASA_PIC')
 export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE'
 export const TOGGLE_MENU = 'TOGGLE_MENU'
 export const LOAD_ARTICLES = 'LOAD_ARTICLES'
+export const LOAD_ABLUM_PAGE = 'LOAD_ABLUM_PAGE'
 
 function action (type, payload={}) {
   return { type, payload }
@@ -49,3 +50,6 @@ export const NASA_pic = {
 }
 /* 菜单切换 */
 export const toggle_menu = selected_menu => action(TOGGLE_MENU, selected_menu)
+
+/* Ablum */
+export const load_ablum_page = _ => action(LOAD_ABLUM_PAGE)

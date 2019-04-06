@@ -1,28 +1,33 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-15 14:29:37
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-05 23:25:17
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-04-06 23:08:43
  */
 import styles from './index.scss'
 import RollingSideMenu from '../RollingSideMenu'
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import Router from 'next/router'
 import { toggle_menu } from '../../actions'
 
 class Layout extends PureComponent {
   /* 切换菜单 */
   handle_toggle_menu = selected => {
+    console.log('handle_toggle_menu');
     const { loading } = this.props
-    const { key } = selected
+    const { key, to='' } = selected
     if (loading['MY_ARTICLES'] && key === 'my_article') {
       return
     }
     if (loading['FE9_ARTICLES'] && key === 'fe9') {
       return
     }
-
-    this.props.toggle_menu(selected)
+    if (to) {
+      Router.push(to)
+      return
+    }
+    // this.props.toggle_menu(selected)
   }
 
   render(){
@@ -46,8 +51,8 @@ export function withRouterLayout (WrappedComponent, fetch_data) {
     toggle_menu
   })(class extends PureComponent {
     static async getInitialProps (ctx) {
-      console.log('getInitialProps')
       const { pathname, store } = ctx
+      console.log('ctx',ctx);
       const { sider_menu: { SIDER_MENU_CONFIG }, loading } = store.getState()
       const data_source = (fetch_data && await fetch_data()) || ''
       // store.dispatch(toggle_menu(SIDER_MENU_CONFIG[pathname]))
@@ -60,7 +65,11 @@ export function withRouterLayout (WrappedComponent, fetch_data) {
         ...wrapped_props,
       }
     }
-
+    componentDidMount(){
+      console.log('componentDidMount');
+      const { current_menu_list } = this.props
+      this.props.toggle_menu(current_menu_list[0])
+    }
     render(){
       const { current_menu_list, data_source, toggle_menu, loading } = this.props
       return (

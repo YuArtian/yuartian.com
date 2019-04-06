@@ -14,11 +14,6 @@ import { flex_cards } from '../components/Card'
 
 class ArticlesPage extends PureComponent {
 
-  componentDidMount(){
-    const { sider_menu: {SIDER_MENU_CONFIG} } = this.props
-    this.props.toggle_menu(SIDER_MENU_CONFIG[window.location.pathname][0])
-  }
-
   render(){
     const { entities: { articles_list=[] } } = this.props
     return (

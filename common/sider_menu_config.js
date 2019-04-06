@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-22 11:28:45
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-01 17:43:31
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-04-06 23:06:00
  */
 const SIDER_MENU_CONFIG = {
   '/': [
@@ -13,13 +13,13 @@ const SIDER_MENU_CONFIG = {
       to: '/'
     },
     {
-      key: 'article',
+      key: 'my_article',
       icon_name: 'octopus',
       title: 'Article',
       to: '/article',
     },
     {
-      key: 'album',
+      key: 'daily',
       icon_name: 'egg',
       title: 'Album',
       to: '/album'
@@ -49,6 +49,7 @@ const SIDER_MENU_CONFIG = {
     {
       key: 'fe9',
       title: '前端九部',
+      to: '/fe9',
       icon_name: 'snoopy',
       api: 'article/fe9/list',
     },
@@ -58,6 +59,7 @@ const SIDER_MENU_CONFIG = {
       key: 'daily',
       title: 'Daily',
       icon_name: 'pooh_bear',
+      to: '/ablum'
     },
   ],
 }

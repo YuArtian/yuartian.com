@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-03-15 11:28:38
- * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-03-21 15:36:03
+ * @Last Modified by: XueYu😊
+ * @Last Modified time: 2019-04-06 23:05:00
  */
 /* "dev": "next -p 8888",
 "start": "next start -p 8888",
@@ -19,7 +19,10 @@ app
   .prepare()
   .then(() => {
     const server = express()
+    server.get('/fe9', (req, res)=>{
 
+      app.render(req, res, '/article', {})
+    })
     server.get('*', (req, res) => {
       return handle(req, res)
     })
