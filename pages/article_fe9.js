@@ -1,8 +1,8 @@
 /*
  * @Author: XueYu 😊
- * @Date: 2019-03-14 09:43:27
+ * @Date: 2019-04-08 15:06:06
  * @Last Modified by: XueYu 😊
- * @Last Modified time: 2019-04-08 15:35:36
+ * @Last Modified time: 2019-04-08 15:35:35
  */
 import React, { PureComponent } from 'react'
 import styles from '../styles/articles.scss'
@@ -38,17 +38,17 @@ const current_menu_list = [
 class ArticlesPage extends PureComponent {
   static async getInitialProps(ctx){
     ctx.store.dispatch({
-      type: 'LOAD_MY_ARTICLE_PAGE',
+      type: 'LOAD_FE9_ARTICLE_PAGE',
     })
 
   }
   render(){
-    const { entities: { my_articles_list=[] } } = this.props
+    const { entities: { fe9_articles_list=[] } } = this.props
     return (
       <div>
         <RollingSideMenu current_menu_list={current_menu_list}/>
         <div id={styles.articles} className={common_styles.content_layout}>
-          {flex_cards(my_articles_list)}
+          {flex_cards(fe9_articles_list)}
         </div>
       </div>
     )

@@ -27,6 +27,7 @@
     "github-markdown-css": "^3.0.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^8.0.3",
+    "next-redux-saga": "^4.0.1",
     "next-redux-wrapper": "^3.0.0-alpha.2",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",

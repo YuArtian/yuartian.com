@@ -14,7 +14,6 @@ import { toggle_menu } from '../../actions'
 class Layout extends PureComponent {
   /* 切换菜单 */
   handle_toggle_menu = selected => {
-    console.log('handle_toggle_menu');
     const { loading } = this.props
     const { key, to='' } = selected
     if (loading['MY_ARTICLES'] && key === 'my_article') {
@@ -23,13 +22,8 @@ class Layout extends PureComponent {
     if (loading['FE9_ARTICLES'] && key === 'fe9') {
       return
     }
-    if (to) {
-      Router.push(to)
-      return
-    }
-    // this.props.toggle_menu(selected)
+    this.props.toggle_menu(selected)
   }
-
   render(){
     const { children, current_menu_list } = this.props
     return (
@@ -52,10 +46,10 @@ export function withRouterLayout (WrappedComponent, fetch_data) {
   })(class extends PureComponent {
     static async getInitialProps (ctx) {
       const { pathname, store } = ctx
-      console.log('ctx',ctx);
+      // console.log('ctx',ctx);
       const { sider_menu: { SIDER_MENU_CONFIG }, loading } = store.getState()
       const data_source = (fetch_data && await fetch_data()) || ''
-      // store.dispatch(toggle_menu(SIDER_MENU_CONFIG[pathname]))
+      store.dispatch(toggle_menu(SIDER_MENU_CONFIG[pathname][0]))
       const wrapped_props = WrappedComponent.getInitialProps && WrappedComponent.getInitialProps(ctx)
       return {
         current_menu_list: SIDER_MENU_CONFIG[pathname],
@@ -65,11 +59,7 @@ export function withRouterLayout (WrappedComponent, fetch_data) {
         ...wrapped_props,
       }
     }
-    componentDidMount(){
-      console.log('componentDidMount');
-      const { current_menu_list } = this.props
-      this.props.toggle_menu(current_menu_list[0])
-    }
+
     render(){
       const { current_menu_list, data_source, toggle_menu, loading } = this.props
       return (

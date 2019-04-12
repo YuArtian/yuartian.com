@@ -1,15 +1,29 @@
 /*
  * @Author: XueYu 😊
  * @Date: 2019-04-03 14:37:05
- * @Last Modified by: XueYu😊
- * @Last Modified time: 2019-04-06 18:30:06
+ * @Last Modified by: XueYu 😊
+ * @Last Modified time: 2019-04-08 17:08:27
  */
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { withRouterLayout } from '../components/Layout'
+import styles from '../styles/album.scss'
 import common_styles from '../styles/common.scss'
-import { NASA_pic } from '../actions'
+import RollingSideMenu from '../components/RollingSideMenu'
 
+/* const current_menu_list = [
+  {
+    key: 'home',
+    icon_name: 'cat',
+    title: 'HOME',
+    to: '/'
+  },
+  {
+    key: 'daily',
+    title: 'Daily',
+    icon_name: 'pooh_bear',
+    to: '/ablum'
+  },
+] */
 
 class Ablum extends PureComponent {
   async getInitialProps(){
@@ -20,9 +34,18 @@ class Ablum extends PureComponent {
   }
   render(){
     return (
-      <div className={common_styles.content_layout}>Ablum</div>
+      <div id={styles.album}>
+        <div className={styles.up}>
+          <div className={styles.main}></div>
+          <div className={styles.main_side}>
+            <div className={styles.daily}></div>
+            <div className={styles.diary}></div>
+          </div>
+        </div>
+        <div className={styles.down}></div>
+      </div>
     )
   }
 }
 
-export default withRouterLayout(connect(state => state)(Ablum))
+export default connect(state => state)(Ablum)

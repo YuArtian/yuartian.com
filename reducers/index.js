@@ -10,7 +10,6 @@ import SIDER_MENU_CONFIG from '../common/sider_menu_config'
 
 function entities(state = {}, action) {
   if (action.payload && action.payload.response) {
-    // return merge({}, state, action.response.entities)
     return {...state, ...action.payload.response}
   }
   return state
@@ -54,7 +53,6 @@ function loading (state={}, action) {
 const rootReducer = combineReducers({
   entities,
   loading,
-  sider_menu,
   errorMessage,
 })
 

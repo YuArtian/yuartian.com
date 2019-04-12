@@ -49,7 +49,7 @@ const SIDER_MENU_CONFIG = {
     {
       key: 'fe9',
       title: '前端九部',
-      to: '/fe9',
+      to: '/article',
       icon_name: 'snoopy',
       api: 'article/fe9/list',
     },

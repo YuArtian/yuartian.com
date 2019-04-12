@@ -14,7 +14,7 @@ class SideMenu extends PureComponent {
   /* 切换菜单 */
   handle_click_menu_item = item => {
     item.to && Router.push(item.to)
-    this.props.handle_toggle_menu(item)
+    // this.props.handle_toggle_menu(item)
   }
   render(){
     const { current_menu_list } = this.props
