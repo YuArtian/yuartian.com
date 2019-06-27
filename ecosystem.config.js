@@ -1,8 +1,9 @@
 module.exports = {
   apps : [{
-    name      : 'yarn',
+    name      : 'yuartian.com',
     script    : 'yarn',
     args      : 'start',
+    watch     : true,
     interpreter: '/bin/bash',
     env: {
       NODE_ENV: 'development'
@@ -10,16 +11,5 @@ module.exports = {
     env_production : {
       NODE_ENV: 'production'
     }
-  }],
-
-  deploy : {
-    production : {
-      user : 'node',
-      host : '212.83.163.1',
-      ref  : 'origin/master',
-      repo : 'git@github.com:repo.git',
-      path : '/var/www/production',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
-    }
-  }
+  }]
 };
