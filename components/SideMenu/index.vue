@@ -41,6 +41,7 @@ export default {
       item.to && this.$router.push(item.to)
     },
     parse_icon(name){
+      console.log('find_svg_by_name(name)',find_svg_by_name(name))
       return find_svg_by_name(name)
     }
   },
