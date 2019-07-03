@@ -20,11 +20,11 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic'
-      }
+      // {
+      //   rel: 'stylesheet',
+      //   href:
+      //     'https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic'
+      // }
       // { rel: 'stylesheet', href: '/static/github-markdown.css' }
     ]
   },

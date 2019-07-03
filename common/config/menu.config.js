@@ -1,6 +1,3 @@
-import { find_svg_by_name } from '../../assets/iconfont/index.js'
-// console.log('iconfont',find_svg_by_name('cat'))
-
 const SIDER_MENU_CONFIG = {
   '/': [
     {
