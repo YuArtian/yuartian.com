@@ -28,29 +28,30 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore');
 @import url('https://fonts.googleapis.com/css?family=Exo:700,800');
-
+</style>
+<style lang="less">
 //font stack(s)
-$cabin: 'Titillium Web', sans-serif;
-$belle: 'La Belle Aurore', cursive;
-$exo: 'Exo', sans-serif;
+@cabin: 'Titillium Web', sans-serif;
+@belle: 'La Belle Aurore', cursive;
+@exo: 'Exo', sans-serif;
 
 // site colours
-$primary-color: #0b2535;
-$secondary-color: #10364e;
-$accent-color: #d8be68;
+@primary-color: #0b2535;
+@secondary-color: #10364e;
+@accent-color: #d8be68;
 
 // text colours
-$text-white: #fff;
+@text-white: #fff;
 
 body {
-  background-color: $primary-color;
-  font-family: $cabin;
+  background-color: @primary-color;
+  font-family: @cabin;
   & ::selection {
-    background: $accent-color;
+    background: @accent-color;
   }
 }
 
@@ -73,12 +74,12 @@ body {
   transform-style: preserve-3d;
 }
 .tags {
-  color: $secondary-color;
+  color: @secondary-color;
   position: absolute;
   bottom: 0;
   left: 90px;
   font-size: 20px;
-  font-family: $belle;
+  font-family: @belle;
 }
 .top-tags {
   bottom: auto;
@@ -102,24 +103,24 @@ body {
     }
   }
   & h1 {
-    color: $text-white;
+    color: @text-white;
     font-size: 53px;
     line-height: 48px;
     margin: 0;
-    font-family: $exo;
+    font-family: @exo;
     font-weight: normal;
     &::before {
       content: '<h1>';
-      font-family: $belle;
-      color: $secondary-color;
+      font-family: @belle;
+      color: @secondary-color;
       font-size: 18px;
       position: absolute;
       margin-top: -35px;
     }
     &::after {
       content: '<h1/>';
-      font-family: $belle;
-      color: $secondary-color;
+      font-family: @belle;
+      color: @secondary-color;
       font-size: 18px;
       position: absolute;
       margin-top: 18px;
@@ -129,30 +130,30 @@ body {
     }
   }
   & h2 {
-    color: $accent-color;
+    color: @accent-color;
     margin-top: 9px;
     font-weight: 400;
     font-size: 11px;
-    font-family: $cabin;
+    font-family: @cabin;
     letter-spacing: 3px;
     -webkit-animation: myanim2 1s 2.5s backwards;
     animation: myanim2 1s 2.5s backwards;
   }
   & .flat-button {
-    color: $accent-color;
+    color: @accent-color;
     font-size: 11px;
     letter-spacing: 3px;
     font-family: 'Open Sans', sans-serif;
     text-decoration: none;
     padding: 6px 10px;
-    border: 1px solid $accent-color;
+    border: 1px solid @accent-color;
     margin-top: 40px;
     float: left;
     border-radius: 4px;
     opacity: 0;
     &:hover {
-      background: $accent-color;
-      color: $primary-color;
+      background: @accent-color;
+      color: @primary-color;
     }
   }
   & .blast {
@@ -161,7 +162,7 @@ body {
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     &:hover {
-      color: $accent-color;
+      color: @accent-color;
     }
   }
 }

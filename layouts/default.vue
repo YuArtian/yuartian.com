@@ -15,7 +15,7 @@ export default {
   components: { SideMenu }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .__default_layout {
   display: flex;
   width: 100%;

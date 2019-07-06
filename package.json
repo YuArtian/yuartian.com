@@ -12,9 +12,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "node-sass": "^4.12.0",
-    "nuxt": "^2.0.0",
-    "sass-loader": "^7.1.0"
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.27",

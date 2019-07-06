@@ -134,7 +134,7 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 #coffee {
   background-color: #6e4228;
   background: radial-gradient(#956f5a 0%, #6e4228 100%);

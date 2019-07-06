@@ -54,7 +54,7 @@ export default {
   components: { Icon },
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .side_menu {
   position: fixed;
   top: 20px;
