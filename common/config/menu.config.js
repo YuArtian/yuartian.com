@@ -60,6 +60,14 @@ const SIDER_MENU_CONFIG = {
       to: '/ablum'
     },
   ],
+  '/photoAlbums': [
+    {
+      key: 'photoAlbums',
+      title: 'PhotoAlbums',
+      icon_name: 'pooh_bear',
+      to: '/photoAlbums'
+    },
+  ],
 }
 
 export default SIDER_MENU_CONFIG
