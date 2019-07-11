@@ -58,6 +58,7 @@ export default {
 .side_menu {
   position: fixed;
   top: 20px;
+  left: 0;
 }
 .menu_list {
   // transform: translate(-270px, 0);

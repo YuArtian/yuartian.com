@@ -9,6 +9,7 @@ import WelcomeBar from '../components/WelcomeBar'
 import Coffee from '../components/Single/Coffee'
 
 export default {
+  layout: 'menuFullScreen',
   head(){
     return {
       script: [{ src: '/zdog.dist.min.js' }]

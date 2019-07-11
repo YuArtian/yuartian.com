@@ -1,5 +1,5 @@
 <template>
-<div id="__menu_layout">
+<div id="__menu_fullscreen_layout">
   <SideMenu/>
   <nuxt />
 </div>
@@ -10,8 +10,3 @@ export default {
   components: { SideMenu }
 }
 </script>
-<style lang="less" scoped>
-#__menu_layout {
-  padding-left: 60px;
-}
-</style>
