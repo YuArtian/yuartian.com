@@ -12,6 +12,7 @@ export default {
 </script>
 <style lang="less" scoped>
 #__menu_layout {
-  padding-left: 60px;
+  // padding-left: 60px;
+  height: 100%;
 }
 </style>

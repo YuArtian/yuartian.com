@@ -1,3 +1,4 @@
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 export default {
   mode: 'universal',
   server: {
@@ -39,11 +40,23 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '~/plugins/axios'
+  ],
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+  ],
+  axios: {
+    // proxyHeaders: false
+   proxy: true,
+   prefix: process.env.NODE_ENV === 'development' ? '/api/dev' : '/api'
+  },
+  proxy: {
+    '/api/dev/': { target: 'http://localhost:8080', pathRewrite: {'^/api/dev': '/api'} }
+  },
   /*
    ** Build configuration
    */

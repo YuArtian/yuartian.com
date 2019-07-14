@@ -1,5 +1,12 @@
 <template>
-  <div>card</div>
+  <article class="card">
+    <header class="card_header">
+      <a href="###" class="card_header_avatar"></a>
+      Name .....
+    </header>
+    <div class="card_content">list_item1</div>
+    <footer class="card_footer">card_footer</footer>
+  </article>
 </template>
 <script>
 export default {
@@ -7,5 +14,59 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-
+.card {
+  position: relative;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: #444857;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  &::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #202229;
+    border-radius: 6px;
+    transition: 0.3s ease;
+  }
+  &:hover{
+    &::after {
+      content: "";
+      position: absolute;
+      top: -14px;
+      bottom: -48px;
+      right: -14px;
+      left: -14px;
+      background: #202229;
+      border-radius: 10px;
+    }
+  }
+}
+.card_header {
+  display: flex;
+  align-items: center;
+  order: 3;
+}
+.card_header_avatar {
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+}
+.card_footer {
+  position: absolute;
+  bottom: -44px;
+  left: -7px;
+  height: 45px;
+  background-color: green;
+  display: flex;
+  align-items: center;
+}
 </style>

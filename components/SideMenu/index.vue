@@ -59,6 +59,7 @@ export default {
   position: fixed;
   top: 20px;
   left: 0;
+  z-index: 99999;
 }
 .menu_list {
   // transform: translate(-270px, 0);
