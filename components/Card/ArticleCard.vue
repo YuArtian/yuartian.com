@@ -1,8 +1,11 @@
 <template>
   <article class="card">
     <header class="card_header">
-      <a href="###" class="card_header_avatar"></a>
-      Name .....
+      <img class="card_header_avatar" :src="datasource.avatar" :alt="datasource.user_name" :title="datasource.user_name">
+      <div class="card_header_content">
+        <div :title="datasource.title" class="header_title">{{datasource.title}}</div>
+        <div class="header_name">{{datasource.user_name}}</div>
+      </div>
     </header>
     <div class="card_content">list_item1</div>
     <footer class="card_footer">card_footer</footer>
@@ -10,7 +13,12 @@
 </template>
 <script>
 export default {
-
+  props: {
+    'datasource': {
+      type: Object,
+      default: () => {}
+    }
+  },
 }
 </script>
 <style lang="less" scoped>
@@ -24,7 +32,6 @@ export default {
   background: #444857;
   border-radius: 6px;
   color: #fff;
-  cursor: pointer;
   &::after {
     z-index: -1;
     content: "";
@@ -54,11 +61,41 @@ export default {
   display: flex;
   align-items: center;
   order: 3;
+  width: 100%;
+  .card_header_avatar {
+    cursor: pointer;
+    margin: 10px 20px;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+  }
+  .card_header_content {
+    flex: 1;
+    overflow: hidden;
+    .header_title {
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 16px;
+      font-weight: bolder;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .header_name {
+      // cursor: pointer;
+      font-family: 'PingFang';
+      letter-spacing: 1.5px;
+      font-weight: lighter;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }
-.card_header_avatar {
-  height: 40px;
-  width: 40px;
-  background-color: #fff;
+.card_content {
+  flex: 1;
 }
 .card_footer {
   position: absolute;

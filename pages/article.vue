@@ -1,7 +1,7 @@
 <template>
   <div id="article">
     <section class="article_list">
-      <ArticleCard v-for="item in article_list" :key="item.id" />
+      <ArticleCard v-for="item in article_list" :key="item.id" :datasource="item" />
     </section>
   </div>
 </template>
@@ -12,6 +12,7 @@ export default {
   layout: 'menu',
   async asyncData ({ $axios }) {
     const data = await $axios.$get('/article/list')
+    console.log('article data',data)
     return {
       article_list: data
     }
