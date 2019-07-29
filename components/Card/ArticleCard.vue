@@ -7,7 +7,7 @@
         <div class="header_name">{{datasource.user_name}}</div>
       </div>
     </header>
-    <div class="card_content">list_item1</div>
+    <div class="card_content" @click="fetch_screenshort(datasource.html_url)">list_item1</div>
     <footer class="card_footer">card_footer</footer>
   </article>
 </template>
@@ -17,6 +17,15 @@ export default {
     'datasource': {
       type: Object,
       default: () => {}
+    }
+  },
+  mounted(){
+    // this.fetch_screenshort(this.datasource.html_url)
+  },
+  methods: {
+    async fetch_screenshort(url){
+      const img = await this.$axios.$get('/screenshot', {params: {url}})
+      console.log('img',img)
     }
   },
 }
