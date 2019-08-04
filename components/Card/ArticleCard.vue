@@ -7,7 +7,10 @@
         <div class="header_name">{{datasource.user_name}}</div>
       </div>
     </header>
-    <div class="card_content" @click="fetch_screenshort(datasource.html_url)">list_item1</div>
+    <div class="card_content">
+      <img class="screenshort" v-if="img_src" :src="img_src" alt="">
+      <div class="screenshort_placeholder" v-else>111</div>
+    </div>
     <footer class="card_footer">card_footer</footer>
   </article>
 </template>
@@ -19,13 +22,27 @@ export default {
       default: () => {}
     }
   },
-  mounted(){
-    // this.fetch_screenshort(this.datasource.html_url)
+  data(){
+    return {
+      img_src: "",
+    }
+  },
+  async mounted(){
+    this.img_src = await this.fetch_screenshort(this.datasource.html_url)
   },
   methods: {
     async fetch_screenshort(url){
-      const img = await this.$axios.$get('/screenshot', {params: {url}})
-      console.log('img',img)
+      try {
+        const { data, code, message } = await this.$axios('/screenshot', {
+          params: {url},
+        })
+        if (!data) throw `${code} ${message}`
+        console.log('data',data);
+        return  data;
+      } catch (error) {
+        this.img_src = ''
+        console.error(error);
+      }
     }
   },
 }
@@ -105,6 +122,20 @@ export default {
 }
 .card_content {
   flex: 1;
+  position: relative;
+  width: 100%;
+  // display: flex;
+  // width: 100%;
+  overflow: hidden;
+  .screenshort {
+    position: absolute;
+    left: -80px;
+    top: -200px;
+
+  }
+  .screenshort_placeholder {
+
+  }
 }
 .card_footer {
   position: absolute;

@@ -12,9 +12,9 @@ export default {
   layout: 'menu',
   async asyncData ({ $axios }) {
     const data = await $axios.$get('/article/list')
-    console.log('article data',data)
+    console.log(' data[0]', data[0]);
     return {
-      article_list: data
+      article_list: [data[0]]
     }
   },
   data(){
