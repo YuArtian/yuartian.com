@@ -20,7 +20,11 @@ export default {
     'datasource': {
       type: Object,
       default: () => {}
-    }
+    },
+    'itemIndex': {
+      type: Number,
+      default: 0
+    },
   },
   data(){
     return {
@@ -29,6 +33,26 @@ export default {
   },
   async mounted(){
     this.img_src = await this.fetch_screenshort(this.datasource.html_url)
+  },
+  beforeCreate(){
+    console.log(`children beforeCreate`);
+  },
+  created(){
+    console.log(`children created`);
+  },
+  beforeMount(){
+    console.log(`children ${this.itemIndex} beforeMount`);
+
+  },
+  // mounted(){
+  //   console.log(`children ${this.itemIndex} mounted`);
+  //   this.datasource.user_name = 'AAA'
+  // },
+  beforeUpdate(){
+    console.log(`children ${this.itemIndex} beforeUpdate`);
+  },
+  updated(){
+    console.log(`children ${this.itemIndex} updated`);
   },
   methods: {
     async fetch_screenshort(url){

@@ -32,8 +32,8 @@ body {
   min-height: 100vh;
 }
 #__nuxt, #__layout {
-  width: 100%;
-  height: 100%;
+  /*width: 100%;*/
+  /*height: 100%;*/
 }
 </style>
 
